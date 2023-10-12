@@ -17,19 +17,18 @@ func main(){
 	msg := flag.String("text", "Hello there!","message to display")
 
 	caps := flag.Bool("c", false, "should text be uppercase")
+	nums := flag.Int("n", 1, "number of times text is displayed")
 	flag.Parse()
-
 
 	if *caps {
 		*msg = strings.ToUpper(*msg)
 	}
-	// display message 
-	fmt.Println(*msg)
-
-
-
+	
+	for i := 0; i < *nums; i++ {
+		fmt.Println(*msg)
+	}
 
 }
 
 
-//run go run flag.go -text=
+//run go run flag.go -text="Goodmorning"
