@@ -1,6 +1,6 @@
 package main
 
-// import "fmt"
+import "fmt"
 
 // import "fmt"
 
@@ -155,6 +155,13 @@ package main
 // 	fmt.Println(names)
 // }
 
+//CHANGING THE VALUE OF AN ARRAY
+// func main(){
+// 	var grades [5]int = [5]int{10,20,30,40,50}
+// 	grades[1] = 100
+// 	fmt.Println(grades)
+// }
+
 //LOOPING THROUGH AN ARRAY
 // func main(){
 // 	var grades [5]int = [5]int{50, 60, 70, 80, 90}
@@ -168,6 +175,7 @@ package main
 // func main(){
 // 	grades := [3]int{10, 20, 30}
 // 	slice := grades[1:]
+// 	fmt.Println(slice)
 // 	sub_slice := slice[:]
 // 	fmt.Println(sub_slice)
 // }
@@ -213,7 +221,7 @@ package main
 
 // func main(){
 // 	arr := [5]int{10, 20, 30, 40, 50}
-// 	slice := arr[:2]
+// 	slice := arr[:2]//10,20
 
 // 	arr_2 := [5]int{5,15,25,35,45}
 // 	slice_2 := arr_2[:2]
@@ -227,17 +235,30 @@ package main
 //WE DO THIS BY CREATING A NEW SLICE THAT DOES NOT CONSIST OF THE ELEMENT THAT NEEDS TO BE DELETED
 
 // func main() {
-// 	arr := [5]int{10,20,30,40,50}
+// 	arr := [5]int{10,20,30,40,50}// deleting 30
 // 	i := 2
 // 	fmt.Println(arr)
 
-// 	slice_1 := arr[:i]
-// 	slice_2 := arr[i+1:]
+// 	slice_1 := arr[:i]//10,20
+// 	slice_2 := arr[i+1:]//40,50
 
 // 	new_slice := append(slice_1, slice_2...)
 
 // 	fmt.Println(new_slice)
 // }
+
+func main(){
+	arr := [5]int{10,20,30,40,50}
+	i := 2//this deletes 20 and not 30, because in the todo app, 2 is actually 2 and the/when a person want to delete 2 in the 0 index they actually want to delte 2 -1 
+	fmt.Println(arr)
+
+	slice_1 := arr[:i-1]//10
+	slice_2 := arr[i:]//30,40,50
+
+	new_slice := append(slice_1,slice_2...)
+
+	fmt.Println(new_slice)
+}
 
 //COPYING FROM ONE SLICE TO ANOTHER(Note that when you change a value in the dest slice, the src slice does not get affected )
 // func main() {

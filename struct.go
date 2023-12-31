@@ -9,6 +9,18 @@ package main
 // 	grades map[string]int
 // }
 
+// type Student struct {
+// 	name string
+// 	rollNo int
+// 	marks []int
+// 	grades map[string]int
+// }
+
+// func main(){
+// 	st := Student{"Joe", 12}
+// 	fmt.Printf("%+v",st)
+// }
+
 //INITIALIZING A STRUCT
 //ONE
 // var s Student
