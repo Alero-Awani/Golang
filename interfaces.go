@@ -147,7 +147,7 @@ func main(){
 //2. create the type that will implement the interface(e.g struct)
 //3. implement the interface using the struct(i.e a method for what the interface actually does for the struct)
 //4. in the main function, create instances of the struct 
-//5. in the main function, also create a variable for the interface and assign it to the struct
+//5. in the main function, also create a variable for the interface and assign it to the struct(note that you can pass in the struct directly to the function)
 //6. In the main function, call the function and pass in that variable
 //7. the function in step 6 takes in the interface variable(this could be single(example1) or a slice of variables(example 2)) and recall this variable stores the struct type that is implementing it
 //8. inside that function we can now do struct_instance.method() e.g v.CalculateSalary in example 2
@@ -185,3 +185,91 @@ func main(){
 	//here we called the work method in the main function unlike what we did in example 2 
 	
 }
+
+
+
+//USING THE STRINGER INTERFACE
+
+type Article struct {
+	Title 	string
+	Author 	string
+}
+
+type Book struct {
+	Title 	string
+	Author 	string
+	Pages 	int
+}
+
+type Stringer interface {
+	String() string
+}
+
+func (a Article) String() string {
+	return fmt.Sprintf("The %q article was written by %s.", a.Title, a.Author)
+}
+
+func (b Book) String() string {
+	return fmt.Sprintf("The %q book was written by the Author %s", b.Title,b.Author)
+}
+func main() {
+	a := Article {
+		Title: "Understanding Interfaces in Go",
+		Author: "Sammy Shark",
+	}
+	//this is an example where we did not have to assign the struct to the interface variable first(we pass the struct variable to the fucntion directly)
+	Print(a)
+
+	//we can add another struct to use the stringer interface
+	b := Book {
+		Title: "Learning about GO",
+		Author: "Alero Awani",
+		Pages: 34,
+	}
+
+	Print(b)
+
+}
+
+func Print(s Stringer) {
+	fmt.Println(s.String())
+}
+
+//here the Print method takes a Stringer and not a concrete type of Article 
+//because the compiler knows that a Stringer interface defines the string method, it will only accept types that also have the string method
+//hence we can use the Print method with anything that satisfies the stringer interface
+
+
+
+//EXAMPLE WITH CONCRETE TYPE// this is an example of a the print method taking in a concrete type and not the Stringer interface//Not a good practice
+type Article struct {
+	Title string
+	Author string
+}
+
+
+func (a Article) String() string {
+	return fmt.Sprintf("The %q article was written by %s.", a.Title, a.Author)
+}
+
+func main() {
+	a := Article {
+		Title: "Understanding Interfaces in Go",
+		Author: "Sammy Shark",
+	}
+	
+	Print(a)
+
+}
+
+func Print(a Article) {
+	fmt.Println(a.String())
+}// with this concrete type, you can see that the interface was not defined here. and Print takes in the concrete type(a Article) this limits the 
+//method to only a
+
+
+
+//THERE ARE TWO WAYS OF IMPLEMENTING AN INTERFACE 
+//1. As an argument to a function - best practice 
+//2. As a concrete type
+
