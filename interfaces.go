@@ -1,11 +1,11 @@
-package main
+// package main
 
-import (
-	"fmt"
-	"math"
-)
+// import (
+// 	"fmt"
+// 	"math"
+// )
 
-// interface definition
+// //interface definition
 // type VowelsFinder interface {
 // 	FindVowels() []rune
 // }
@@ -265,85 +265,83 @@ import (
 // //1. As an argument to a function - best practice
 // //2. As a concrete type
 
-//EXAMPLE 6
-//Define the struct
-type Circle struct{
-	Radius float64
-}
+// //EXAMPLE 6
+// //Define the struct
+// type Circle struct{
+// 	Radius float64
+// }
 
-type Square struct {
-	Width float64
-	Height float64
-}
+// type Square struct {
+// 	Width float64
+// 	Height float64
+// }
 
-//define the interface
-type Sizer interface {
-	Area() float64
-}
-
-
-//this interface is a combination of two 
-//we didnt have to create the stringer interface again because it is already part of the Go fmt package
-type Shaper interface {
-	Sizer
-	fmt.Stringer
-}
-
-//the both structs will define the method Area() of the interface Sizer
-func (c Circle) Area() float64 {
-	return math.Pi * math.Pow(c.Radius, 2)
-}
-
-func (s Square) Area() float64 {
-	return s.Width * s.Height
-}
-
-//add the string() method as a behaviour to each of the struct types(this will satisfy the fmt.Stringer interface)
-func (c Circle) String() string {
-	return fmt.Sprintf("Circle {Radius: %.2f}", c.Radius)
-}
-
-func (s Square) String() string {
-	return fmt.Sprintf("Square {Width: %.2f, height: %.2f}", s.Width, s.Height)
-}
-
-//call the Area method from the square and circle types in a function
-// This function can be used by anything that satisfies the Sizer interface
-
-//here we take both arguments as the type Sizer and return the result
-//as a Sizer as well. This means that we no longer return a Square or a Circle, but the interface of Sizer
-func Less(s1, s2 Sizer) Sizer {
-	if s1.Area() < s2.Area() {
-		return s1
-	}
-	return s2
-}
-
-//use the Shaper interface in a function which calls both the String() method and Area method
-
-func PrintArea(s Shaper) {
-	fmt.Printf("Area of %s is %.2f\n", s.String(), s.Area())
-}
+// //define the interface
+// type Sizer interface {
+// 	Area() float64
+// }
 
 
+// //this interface is a combination of two 
+// //we didnt have to create the stringer interface again because it is already part of the Go fmt package
+// type Shaper interface {
+// 	Sizer
+// 	fmt.Stringer
+// }
+
+// //the both structs will define the method Area() of the interface Sizer
+// func (c Circle) Area() float64 {
+// 	return math.Pi * math.Pow(c.Radius, 2)
+// }
+
+// func (s Square) Area() float64 {
+// 	return s.Width * s.Height
+// }
+
+// //add the string() method as a behaviour to each of the struct types(this will satisfy the fmt.Stringer interface)
+// func (c Circle) String() string {
+// 	return fmt.Sprintf("Circle {Radius: %.2f}", c.Radius)
+// }
+
+// func (s Square) String() string {
+// 	return fmt.Sprintf("Square {Width: %.2f, height: %.2f}", s.Width, s.Height)
+// }
+
+// //call the Area method from the square and circle types in a function
+// // This function can be used by anything that satisfies the Sizer interface
+
+// //here we take both arguments as the type Sizer and return the result
+// //as a Sizer as well. This means that we no longer return a Square or a Circle, but the interface of Sizer
+// func Less(s1, s2 Sizer) Sizer {
+// 	if s1.Area() < s2.Area() {
+// 		return s1
+// 	}
+// 	return s2
+// }
+
+// //use the Shaper interface in a function which calls both the String() method and Area method
+
+// func PrintArea(s Shaper) {
+// 	fmt.Printf("Area of %s is %.2f\n", s.String(), s.Area())
+// }
 
 
-//Define the main function 
-func main(){
-	//create instances of structs 
-	c := Circle{Radius: 10}
-	PrintArea(c)
-
-	s := Square{Height: 10, Width: 5}
-	PrintArea(s)
-
-	l := Less(c, s)
-	fmt.Printf("%+v is the smallest\n",l)
 
 
-}
+// //Define the main function 
+// func main(){
+// 	//create instances of structs 
+// 	c := Circle{Radius: 10}
+// 	PrintArea(c)
+
+// 	s := Square{Height: 10, Width: 5}
+// 	PrintArea(s)
+
+// 	l := Less(c, s)
+// 	fmt.Printf("%+v is the smallest\n",l)
 
 
+// }
 
 
 
@@ -353,4 +351,6 @@ func main(){
 
 
 
-//Another way to look at is, if more than one type(structs) is implementing the same method you can create an interface for it instead 
+
+
+// //Another way to look at is, if more than one type(structs) is implementing the same method you can create an interface for it instead 
