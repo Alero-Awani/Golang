@@ -274,81 +274,81 @@ func main(){
 // 	fmt.Println(num)
 // }
 
-// EXERCISES
+EXERCISES
 
-// func main(){
-// 	arr := [5]int{}
-// 	my_map := make(map[string]int)
-// 	my_map["A"] = 65
-// 	my_map["B"] = 66
-// 	i := 0
-// 	for _, value := range my_map {
-// 			arr[i] = value
-// 			i += 1
-// 	}
-// 	fmt.Println(arr)
-// }
+func main(){
+	arr := [5]int{}
+	my_map := make(map[string]int)
+	my_map["A"] = 65
+	my_map["B"] = 66
+	i := 0
+	for _, value := range my_map {
+			arr[i] = value
+			i += 1
+	}
+	fmt.Println(arr)
+}
 
-// func main() {
-// 	arr := [5]int{10, 20, 30, 90, 100}
-// 	new_slice := append(arr[:3], arr[4:]...)
-// 	fmt.Print(new_slice)
-// }
+func main() {
+	arr := [5]int{10, 20, 30, 90, 100}
+	new_slice := append(arr[:3], arr[4:]...)
+	fmt.Print(new_slice)
+}
 
-// MAPS
+MAPS
 
-//NOTE THAT THIS CREATES A NIL MAP AND WE CANNOT ADD VALUES TO IT
-// func main(){
-// 	var my_map map[string]int
-// 	fmt.Println(my_map)
-// }
+NOTE THAT THIS CREATES A NIL MAP AND WE CANNOT ADD VALUES TO IT
+func main(){
+	var my_map map[string]int
+	fmt.Println(my_map)
+}
 
-// TO ADD PAIRS TO THE MAP , WE NEED TO CREATE AND INITIALIZE THE MAP
+TO ADD PAIRS TO THE MAP , WE NEED TO CREATE AND INITIALIZE THE MAP
 
-// func main(){
-// 	code := map[string]string{"en":"English", "fr":"French"}
-// 	fmt.Println(code)
-// }
+func main(){
+	code := map[string]string{"en":"English", "fr":"French"}
+	fmt.Println(code)
+}
 
-// WE CAN ALSO INITIALIZE A MAP USING THE MAKE FUNCTION (this gives an empty map)
+WE CAN ALSO INITIALIZE A MAP USING THE MAKE FUNCTION (this gives an empty map)
 
-// func main(){
-// 	code := make(map[string]int)
-// 	fmt.Println(code)
-// }
+func main(){
+	code := make(map[string]int)
+	fmt.Println(code)
+}
 
-//GETTING A VALUE FROM A MAP(When you get a value, it returns a value and a boolean that shows if it was found or not)
+GETTING A VALUE FROM A MAP(When you get a value, it returns a value and a boolean that shows if it was found or not)
 
-// func main(){
-// 	code := map[string]int{"en":1, "fr":2}
-// 	value, found := code["en"]
-// 	fmt.Println(value, found)
-// }
+func main(){
+	code := map[string]int{"en":1, "fr":2}
+	value, found := code["en"]
+	fmt.Println(value, found)
+}
 
-// ADDING A KEY VALUE PAIR
+ADDING A KEY VALUE PAIR
 
-// func main(){
-// 	code := map[string]int{"en":1, "fr":2}
-// 	code["en"] = 200
-// 	value, found := code["en"]
-// 	fmt.Println(value, found)
-// }
+func main(){
+	code := map[string]int{"en":1, "fr":2}
+	code["en"] = 200
+	value, found := code["en"]
+	fmt.Println(value, found)
+}
 
-// DELETING A VALUE
+DELETING A VALUE
 
-// func main(){
-// 	code := map[string]int{"en":1, "fr":2}
-// 	code["en"] = 200
-// 	delete(code, "en")
-// 	value, found := code["en"]
-// 	fmt.Println(value, found)
-// }
+func main(){
+	code := map[string]int{"en":1, "fr":2}
+	code["en"] = 200
+	delete(code, "en")
+	value, found := code["en"]
+	fmt.Println(value, found)
+}
 
-// ITERATING OVER A MAP
-// func main(){
-// 	code := map[string]string{"En":"English", "Fr":"French"}
+ITERATING OVER A MAP
+func main(){
+	code := map[string]string{"En":"English", "Fr":"French"}
 
-// 	for key, value := range code {
-// 		fmt.Println(key, "=>", value)
-// 	}
-// }
+	for key, value := range code {
+		fmt.Println(key, "=>", value)
+	}
+}
